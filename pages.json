@@ -1,0 +1,22 @@
+[
+  {
+    "name": "vysledky 1. pulrok CS",
+    "page_path": "poradi:rocnik@year@:pololeti1",
+    "template":"---- datatemplateentry results ----\n  template: :system:public:results-pololeti1_cs \n  type : results \n  year : @year@\n----"
+  },
+  {
+    "name": "vysledky 2. pulrok CS",
+    "page_path": "poradi:rocnik@year@:pololeti2",
+    "template":"---- datatemplateentry results ----\n  template: :system:public:results-pololeti2_cs \n  type : results \n  year : @year@\n----"
+  },
+  {
+    "name": "vysledky konecne CS",
+    "page_path": "poradi:rocnik@year@:konecne",
+    "template":"---- datatemplateentry results ----\n  template: :system:public:results-konecne_cs \n  type : results \n  year : @year@\n----"
+  },
+  {
+    "name": "vysledky série CS",
+    "page_path": "poradi:rocnik@year@:serie@series@",
+    "template":"---- datatemplateentry results ----\n  template: :system:public:results-serie_cs \n  series_ : @series@ \n  type : results \n  year : @year@\n----"
+  }
+]

@@ -1,0 +1,7 @@
+base   pageburner
+author Michal Červňák
+email  miso@fykos.cz
+date   2016-12-30
+name   Page Burner
+desc
+url    https://github.com/fykosak/dokuwiki-plugin-pageburner.git
