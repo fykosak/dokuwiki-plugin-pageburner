@@ -34,7 +34,6 @@ class admin_plugin_pageburner extends DokuWiki_Admin_Plugin {
             }
             $series[] = null;
         }
-
         if (count($years) == 0) {
             if (in_array('@year@', $allParam)) {
                 msg('empty param year', -1);
@@ -60,7 +59,7 @@ class admin_plugin_pageburner extends DokuWiki_Admin_Plugin {
         $form->addFieldsetOpen('Template');
 
         $templatePages = json_decode(io_readFile(__DIR__ . '/pages.json'));
-        array_unshift($templatePages, "--vybrať template--");
+        array_unshift($templatePages, '--vybrať template--');
         $form->addDropdown('template_page', array_map(function ($row) {
             return $row->name;
         }, $templatePages))->attrs(['data-data' => json_encode($templatePages), 'id' => 'page-burner_template-page']);
