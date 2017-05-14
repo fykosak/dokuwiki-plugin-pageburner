@@ -1,6 +1,6 @@
 <?php
 
 
-$lang['page_path'] = 'Cesta k templatu';
+$lang['page-path'] = 'Maska stránky';
 $lang['year'] ='Ročník';
 $lang['series']= 'Série';

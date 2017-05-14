@@ -59,20 +59,36 @@ class admin_plugin_pageburner extends DokuWiki_Admin_Plugin {
         $form->addFieldsetOpen('Template');
 
         $templatePages = json_decode(io_readFile(__DIR__ . '/pages.json'));
-        array_unshift($templatePages, '--vybrať template--');
-        $form->addDropdown('template_page', array_map(function ($row) {
+        $templateNames = array_map(function ($row) {
             return $row->name;
-        }, $templatePages))->attrs(['data-data' => json_encode($templatePages), 'id' => 'page-burner_template-page']);
-        $form->addTextarea('template');
+        },
+            $templatePages);
+        array_unshift($templateNames, '--vybrať template--');
+        $form->addDropdown('template_page', $templateNames)->attrs([
+            'data-data' => json_encode($templatePages),
+            'id' => 'page-burner_template-page',
+            'class' => 'form-control',
+            'size' => ' ',
+        ]);
+        $form->addTextarea('template')->attrs(['class' => 'form-control col-12', 'height' => '500']);
         $form->addFieldsetClose();
 
         $form->addFieldsetOpen('Parametre');
-        $form->addTextInput('page_path', $this->getLang('page_path'))->addClass('block');
-        $form->addTextInput('year', $this->getLang('year'))->addClass('block');
-        $form->addTextInput('series', $this->getLang('series'))->addClass('block');
+
+        $form->addTagOpen('div')->addClass('form-group');
+        $form->addTextInput('page_path', $this->getLang('page-path'))->attr('class', 'form-control');
+        $form->addTagClose('div');
+
+        $form->addTagOpen('div')->addClass('form-group');
+        $form->addTextInput('year', $this->getLang('year'))->attr('class', 'form-control');
+        $form->addTagClose('div');
+
+        $form->addTagOpen('div')->addClass('form-group');
+        $form->addTextInput('series', $this->getLang('series'))->attr('class', 'form-control');
+        $form->addTagClose('div');
 
         $form->addFieldsetClose();
-        $form->addButton('submit', 'Burn');
+        $form->addButton('submit', 'Burn!')->addClass('btn btn-warning');
 
         echo $form->toHTML();
     }
@@ -92,7 +108,8 @@ class admin_plugin_pageburner extends DokuWiki_Admin_Plugin {
         }
         $scales = array_map(function ($value) {
             return (int)$value;
-        }, $scales);;
+        },
+            $scales);;
         return array_unique($scales);
     }
 
